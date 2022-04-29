@@ -43,7 +43,7 @@ const addContact = async(name, email, phone) => {
   const contacts = await listContacts();
   const newContact = { id: nanoid(), name, email, phone };
   contacts.push(newContact);
-  await fs.writeFile(contactsPath, JSON.stringify(contacts));
+  await updateContacts(contacts);
   return newContact;
 }
 
